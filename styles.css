@@ -1,0 +1,77 @@
+.body-container {
+    width: 100%;
+    height: 100vh;
+}
+
+.month-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    height: 10%;
+    text-align: left;
+}
+.month-header-left button {
+    padding: 0px !important;
+    background-color: #fff;
+    border-color: #fff;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.month-name {
+    margin-left: 10px;
+    font-size: 18px;
+}
+
+.table-responsive-sm {
+    height: 90%;
+}
+
+.table-responsive-sm .table{
+    height: 100%;
+}
+
+.table-responsive-sm .table thead th{
+    font-weight: normal;
+    text-align: center;
+    border-bottom: none;
+    border-top: none;
+}
+
+.table-responsive-sm .table tbody tr{
+    text-align: center;
+}
+
+.table-responsive-sm .table tbody tr td{
+    padding: 0px;
+}
+
+.not-current-month{
+    color: gray;
+}
+
+.today {
+    background-color: #1a73e8;
+    color: white;
+    width: 25px;
+    height: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+}
+
+.month-header-right {
+    width: fit-content;
+    align-items: center;
+}
+
+.month-header-right button {
+    font-size: 14px;
+}
+
+.month-header-left {
+    display: flex; 
+    align-items: center;   
+}
