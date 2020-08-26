@@ -35,6 +35,7 @@ function getDaysOfMonth(month, year) {
 
     var htmlCode = '<tr>'
     var start = false
+    var monthNow = _month - 1
     days.forEach((date, index) => {
         if (index % 7 === 0 && index !== 0) {
             htmlCode = htmlCode + '</tr><tr>'
@@ -42,19 +43,29 @@ function getDaysOfMonth(month, year) {
         if (date === 1 ) {
             if (start) {
                 start = false
+                monthNow = _month + 1
             } else {
                 start = true
+                monthNow = _month
             }
         }
+
+        var dayOfWeek = new Date(_year, monthNow, date).getDay()
 
         if (start) {
             if (today() === date) {
                 htmlCode = htmlCode + '<td><div class="today">' + date + '</div></td>'
+            } else if (dayOfWeek === 0) {
+                htmlCode = htmlCode + '<td class="sunday">'+ date + '</td>'
             } else {
                 htmlCode = htmlCode + '<td>' + date + '</td>'
             }
         } else {
-            htmlCode = htmlCode + '<td class="not-current-month">' + date + '</td>'
+            if (dayOfWeek === 0) {
+                htmlCode = htmlCode + '<td class="sunday-not-current-month">' + date + '</td>'
+            } else {
+                htmlCode = htmlCode + '<td class="not-current-month">' + date + '</td>'
+            }
         }
     });
 
