@@ -62,15 +62,11 @@ function getDaysOfMonth(month, year) {
 }
 
 function getMonth(currentDate) {
-    var month = currentDate.toLocaleString('default', { month: 'long' })
+    var month = currentDate.toLocaleString('default', { month: 'short' })
     var currentYear = new Date().getFullYear()
-    monthHeader = month.toString()
-
-    if (_year === currentYear) {
-        return monthHeader
-    } else {
-        return monthHeader + " " + _year.toString()
-    }
+    monthHeader = month.toString().toUpperCase()
+    
+    return monthHeader
 }
 
 
@@ -91,6 +87,7 @@ function changeMonth(direction) {
 
     _currentDate = new Date(_year, _month)
     $('.month-name').html(getMonth(_currentDate))
+    $('.year').html(_year.toString())
     $('#day').html(getDaysOfMonth(_month, _year))
 }
 
@@ -115,9 +112,12 @@ function goToday() {
     _month = month
 
     $('.month-name').html(getMonth(today))
+    $('.year').html(_year.toString())
     $('#day').html(getDaysOfMonth(month, year))
 }
 
 
 $('.month-name').html(getMonth(_currentDate))
+$('.year').html(_year.toString())
 $('#day').html(getDaysOfMonth(_month, _year))
+$('.current-date').html(today())

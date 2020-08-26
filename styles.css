@@ -7,10 +7,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: 10px 20px;
     height: 10%;
     text-align: left;
 }
+
+.month-header-left {
+    display: flex; 
+    height: 100%;
+    align-items: flex-end;
+}
+
 .month-header-left button {
     padding: 0px !important;
     background-color: #fff;
@@ -20,9 +27,27 @@
     border-radius: 50%;
 }
 
+.menu-icon {
+    max-height: 35px;
+    font-size: 28px;    
+    align-self: flex-end;
+}
+
 .month-name {
-    margin-left: 10px;
-    font-size: 18px;
+    margin-left: 20px;
+    font-size: 28px;    
+    font-weight: 300;
+    align-self: flex-end;
+    max-height: 35px;
+}
+
+.year {
+    margin-left: 15px;
+    font-size: 14px;
+    color: grey;
+    align-self: flex-end;
+    max-height: 35px;
+    font-weight: 400;
 }
 
 .table-responsive-sm {
@@ -64,14 +89,28 @@
 
 .month-header-right {
     width: fit-content;
-    align-items: center;
+    display: flex;
+    min-height: 35px;
 }
 
-.month-header-right button {
-    font-size: 14px;
+.icon-right {
+    margin-left: 15px;
+    min-height: 35px;
+    display: flex;
+    align-items: flex-end;
 }
 
-.month-header-left {
-    display: flex; 
-    align-items: center;   
+
+.today-icon {
+    position: relative;
 }
+
+.current-date {
+    position: absolute;
+    font-size: 12px;
+    font-weight: 600;
+    bottom: 4%;
+    left: 20%;
+}
+
+
