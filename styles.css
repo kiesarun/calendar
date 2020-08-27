@@ -53,7 +53,7 @@
 }
 
 .table-responsive-sm {
-    height: 90%;
+    height: calc(90% - 20px);
     width: 100%;
     padding: 10px 20px 5px 20px;
     border-radius: 25px;
@@ -62,8 +62,13 @@
     font-weight: 700;
 }
 
+.table-responsive-sm table {
+    border-collapse: separate;
+}
+
 .table-responsive-sm .table{
     height: 100%;
+    margin-bottom: 0px;
 }
 
 .table-responsive-sm .table thead th{
@@ -147,5 +152,25 @@
 .change-month-btn-left button{
     color: #d2d2d2;
 }
+
+.add-event-btn {
+    background-color: #20a483;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    bottom: 15px;
+    right: 40px;
+    border-radius: 50%;
+    color: #fff;
+}
+
+.select {
+    border: 1px solid #20a483 !important;
+}
+
+
 
 
