@@ -36,6 +36,7 @@ function getDaysOfMonth(month, year) {
     var htmlCode = '<tr>'
     var start = false
     var monthNow = _month - 1
+    var selectId = ''
     days.forEach((date, index) => {
         if (index % 7 === 0 && index !== 0) {
             htmlCode = htmlCode + '</tr><tr>'
@@ -54,22 +55,29 @@ function getDaysOfMonth(month, year) {
 
         if (start) {
             if (today() === date) {
-                htmlCode = htmlCode + '<td><div class="today">' + date + '</div></td>'
+                htmlCode = htmlCode + '<td class="select" id="'+ index +'" onclick="showSelector('+ index + ')"><div class="today">' + date + '</div></td>'
             } else if (dayOfWeek === 0) {
-                htmlCode = htmlCode + '<td class="sunday">'+ date + '</td>'
+                htmlCode = htmlCode + '<td class="sunday" id="'+ index +'" onclick="showSelector('+ index + ')">'+ date + '</td>'
             } else {
-                htmlCode = htmlCode + '<td>' + date + '</td>'
+                htmlCode = htmlCode + '<td id="'+ index +'" onclick="showSelector('+ index + ')">' + date + '</td>'
             }
         } else {
             if (dayOfWeek === 0) {
-                htmlCode = htmlCode + '<td class="sunday-not-current-month">' + date + '</td>'
+                htmlCode = htmlCode + '<td class="sunday-not-current-month" id="'+ index +'" onclick="showSelector('+ index + ')">' + date + '</td>'
             } else {
-                htmlCode = htmlCode + '<td class="not-current-month">' + date + '</td>'
+                htmlCode = htmlCode + '<td class="not-current-month" id="'+ index +'" onclick="showSelector('+ index + ')">' + date + '</td>'
             }
         }
     });
 
     return htmlCode = htmlCode + '</tr>'
+}
+
+function showSelector(id) {
+    for (let i=0; i < 42; i++) {
+        $('#'+ i).removeClass('select')
+    }
+    $('#'+ id).addClass('select')
 }
 
 function getMonth(currentDate) {
@@ -126,6 +134,7 @@ function goToday() {
     $('.year').html(_year.toString())
     $('#day').html(getDaysOfMonth(month, year))
 }
+
 
 
 $('.month-name').html(getMonth(_currentDate))
